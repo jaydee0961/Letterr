@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter for Sam</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8cdda, #1d2b64);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .container {
+    background: rgba(0,0,0,0.6);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    max-width: 500px;
+  }
+
+  button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff6b81;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background-color: #ff4757;
+  }
+
+  .letter {
+    margin-top: 20px;
+    line-height: 1.5;
+    text-align: left;
+    white-space: pre-wrap;
+    display: none;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>For Sam 💌</h1>
+    <p>Click the button to read my letter.</p>
+    <button onclick="typeLetter()">Open Letter</button>
+    <div class="letter" id="letter"></div>
+  </div>
+
+<script>
+const letterText = `Hi Sam,
+
+This is our last meet up, and I just want to say I really miss how we used to talk about random things at night, sharing our day, and how just seeing you smile would make my whole day better. Those small moments, kahit simpleng tawanan lang o kwentuhan, they made me feel so alive and happy in ways I can’t even explain.
+
+I don’t know exactly when things started to change, but I guess this is where we part ways. And even though it hurts, I know that holding on to what we had isn’t fair to either of us anymore. The memories we created together, big or small, will stay with me forever. They mattered. They shaped a part of me, and I will always cherish them.
+
+I must say farewell to you, Sam, because my heart feels heavy right now. It’s hard to let go of someone who once meant the world to you. But I hope you remain happy, truly happy, as you discover someone who can bring the same joy into your life the kind of happiness you unknowingly brought into mine.
+
+Even if we are no longer together, I want you to know that you will always have a place in my heart. Thank you for the smiles, the late-night talks, and for just being you. I hope that wherever life takes us, we both find the peace and happiness we deserve.
+
+Sincerely,
+Aki💙`;
+
+function typeLetter() {
+  const letterDiv = document.getElementById('letter');
+  letterDiv.style.display = 'block';
+  letterDiv.textContent = '';
+  let i = 0;
+
+  function typing() {
+    if(i < letterText.length) {
+      letterDiv.textContent += letterText[i];
+      i++;
+      setTimeout(typing, 50); // adjust speed here (ms per character)
+    }
+  }
+
+  typing();
+}
+</script>
+</body>
+</html>
